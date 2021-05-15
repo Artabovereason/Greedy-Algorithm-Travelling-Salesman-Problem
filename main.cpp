@@ -1,5 +1,3 @@
-// C++ program to illustrate the
-// iterators in vector
 #include <iostream>
 #include <fstream>
 #include <vector>
