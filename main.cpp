@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+#include <random>
 using namespace std;
 
 #define town_number 10
@@ -203,13 +203,23 @@ double findMean(double a[town_number][town_number])
     return (double)sum/(town_number*town_number);
 }
 
+/*
+double random(){
+        return sqrt((double)rand() / RAND_MAX); // for generating random points between 0 to 1
+    }
+*/
 
+double doubleRand() {
+  return double(rand()) / (double(RAND_MAX) + 1.0);
+}
 
 
 int main()
 {
 
-  array<array<double, 2>,town_number> towns =
+
+
+  array<array<double, 2>,town_number> towns; /*=
   {
     array<double, 2>
     {{ 2, 2 }},
@@ -221,7 +231,7 @@ int main()
     {{ 5, 4 }},
     {{ 12, 3 }},
     {{ 4, 8 }},
-    {{ 17, -2 }}/*,
+    {{ 17, -2 }},
     {{ -3, -4 }},
     {{ 7, -4 }},
     {{ -8, 4 }},
@@ -231,8 +241,13 @@ int main()
     {{ 7, 12 }},
     {{ 13, -3 }},
     {{ -9, -4 }},
-    {{ -1, 4 }}*/ //20
-  };
+    {{ -1, 4 }}
+  };*/
+
+for (int i=0;i<town_number;i++)
+  {
+  towns[i]={{doubleRand()*100-50, doubleRand()*100-50}};
+  }
 
 
 
@@ -316,9 +331,11 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set title \"Representation de l'Univers \" font \"Verdana,13\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
-   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set xrange [-55:55]"<<endl;
    town_graphic_multi<<"set ylabel \"y\""<<endl;
-   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
    town_graphic_multi<<"plot 'coordonnee.txt' using 1:2:3 with labels point  pt 7 offset char 0.5,0.5 notitle"<<endl;
 
@@ -327,9 +344,11 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set title \"Representation de tous les chemins\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
-   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set xrange [-55:55]"<<endl;
    town_graphic_multi<<"set ylabel \"y point\""<<endl;
-   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
    town_graphic_multi<<"plot \"coordonnee_bloc.txt\" using 1:2:($3-$1):($4-$2) with vectors nohead  linecolor rgb \"grey\"  title \"Chemins\",'coordonnee.txt' with points pt 7 title \"ville\" "<<endl;
 
@@ -338,9 +357,11 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set title \"Representation du chemin optimal\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
-   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set xrange [-55:55]"<<endl;
    town_graphic_multi<<"set ylabel \"y\""<<endl;
-   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
    town_graphic_multi<<"plot 'optimal_path.txt' using 1:2:($3-$1):($4-$2) with vectors nohead linecolor rgb \"blue\" title \"Chemin optimal\",'coordonnee.txt' with points pt 7 title \"ville\""<<endl;
 
@@ -349,9 +370,11 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set title \"Representation du chemin maximal\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
-   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set xrange [-55:55]"<<endl;
    town_graphic_multi<<"set ylabel \"y\""<<endl;
-   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+//   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
+   town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
    town_graphic_multi<<"plot 'optimal_pathmax.txt' using 1:2:($3-$1):($4-$2) with vectors nohead linecolor rgb \"red\" title \"Chemin maximal\",'coordonnee.txt' with points pt 7 title \"ville\""<<endl;
 
