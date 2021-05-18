@@ -329,7 +329,7 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
    town_graphic_multi<<"set key font \"Verdana,12\""<<endl;
    town_graphic_multi<<"set xtics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
-   town_graphic_multi<<"set title \"Representation de l'Univers \" font \"Verdana,13\""<<endl;
+   town_graphic_multi<<"set title \"World representation \" font \"Verdana,13\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
 //   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set xrange [-55:55]"<<endl;
@@ -342,7 +342,7 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
    town_graphic_multi<<"set key font \"Verdana,12\""<<endl;
    town_graphic_multi<<"set xtics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
-   town_graphic_multi<<"set title \"Representation de tous les chemins\""<<endl;
+   town_graphic_multi<<"set title \"Possible paths\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
 //   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set xrange [-55:55]"<<endl;
@@ -350,12 +350,12 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
 //   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
-   town_graphic_multi<<"plot \"coordonnee_bloc.txt\" using 1:2:($3-$1):($4-$2) with vectors nohead  linecolor rgb \"grey\"  title \"Chemins\",'coordonnee.txt' with points pt 7 title \"ville\" "<<endl;
+   town_graphic_multi<<"plot \"coordonnee_bloc.txt\" using 1:2:($3-$1):($4-$2) with vectors nohead  linecolor rgb \"grey\"  title \"Paths\",'coordonnee.txt' with points pt 7 title \"Towns\" "<<endl;
 
    town_graphic_multi<<"set key font \"Verdana,12\""<<endl;
    town_graphic_multi<<"set xtics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
-   town_graphic_multi<<"set title \"Representation du chemin optimal\""<<endl;
+   town_graphic_multi<<"set title \"Optimal path\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
 //   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set xrange [-55:55]"<<endl;
@@ -363,12 +363,12 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
 //   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
-   town_graphic_multi<<"plot 'optimal_path.txt' using 1:2:($3-$1):($4-$2) with vectors nohead linecolor rgb \"blue\" title \"Chemin optimal\",'coordonnee.txt' with points pt 7 title \"ville\""<<endl;
+   town_graphic_multi<<"plot 'optimal_path.txt' using 1:2:($3-$1):($4-$2) with vectors nohead linecolor rgb \"blue\" title \"Optimal path\",'coordonnee.txt' with points pt 7 title \"Towns\""<<endl;
 
    town_graphic_multi<<"set key font \"Verdana,12\""<<endl;
    town_graphic_multi<<"set xtics font \"Verdana,15\""<<endl;
    town_graphic_multi<<"set ytics font \"Verdana,15\""<<endl;
-   town_graphic_multi<<"set title \"Representation du chemin maximal\""<<endl;
+   town_graphic_multi<<"set title \"Maximal path\""<<endl;
    town_graphic_multi<<"set xlabel \"x\""<<endl;
 //   town_graphic_multi<<"set xrange ["<<xmean-findMax(matrix)/1.3<<":"<<xmean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set xrange [-55:55]"<<endl;
@@ -376,7 +376,7 @@ town_graphic_multi<<"set output \"cartefull.eps\""<<endl;
 //   town_graphic_multi<<"set yrange ["<<ymean-findMax(matrix)/1.3<<":"<<ymean+findMax(matrix)/1.3<<"]"<<endl;
    town_graphic_multi<<"set yrange [-55:55]"<<endl;
    town_graphic_multi<<"set style fill transparent solid 0.2 noborder"<<endl;
-   town_graphic_multi<<"plot 'optimal_pathmax.txt' using 1:2:($3-$1):($4-$2) with vectors nohead linecolor rgb \"red\" title \"Chemin maximal\",'coordonnee.txt' with points pt 7 title \"ville\""<<endl;
+   town_graphic_multi<<"plot 'optimal_pathmax.txt' using 1:2:($3-$1):($4-$2) with vectors nohead linecolor rgb \"red\" title \"Maximal path\",'coordonnee.txt' with points pt 7 title \"Towns\""<<endl;
 
    town_graphic_multi<<"pause -1"<<endl; // le graphique reste affiché tant que je ne le ferme pas
 
